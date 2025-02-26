@@ -37,13 +37,18 @@ def index():
         # Define the numerical ODE function dynamically
         def example_ode(t, y):
             local_vars = {'t': t, 'np': np}  
+
+            # Support both 'y1, y2,...' and 'v' if user inputs v
             for i, val in enumerate(y):
-                local_vars[f'y{i+1}'] = val 
+                local_vars[f'y{i+1}'] = val  # Define y1, y2, ...
+                local_vars['v'] = y[0]  # If user enters 'v', assume it's the first variable
+
             try:
-                return [eval(eq, local_vars) for eq in equations]
+                return [eval(eq, local_vars) for eq in equations]  # Evaluate each equation safely
             except NameError as e:
-                print(f"\u26a0\ufe0f ERROR: Undefined variable - {e}")
-                return None  
+                print(f"⚠️ ERROR: Undefined variable - {e}")
+                return [0] * len(y)  # Return zero derivatives if an error occurs
+
 
         t_range = (0, time_end)
         t, sol_ivp = numerical_solver(example_ode, y0, t_range)
@@ -56,7 +61,14 @@ def index():
         for i, y_var in enumerate(y_syms):
             local_vars[f'y{i+1}'] = y_var  
 
+        local_vars = {'t': t_sym, 'sp': sp}
+
+        # Define all dependent variables dynamically (y1, y2, ...)
+        for i, y_var in enumerate(y_syms):
+            local_vars[f'y{i+1}'] = y_var
+            local_vars['v'] = y_syms[0]  
         symbolic_eqs = [sp.Eq(y.diff(t_sym), eval(eq, local_vars)) for y, eq in zip(y_syms, user_eq_sym)]
+
         initial_conditions = {y_syms[i].subs(t_sym, 0): y0[i] for i in range(len(y_syms))}
 
         if len(initial_conditions) == len(y_syms):

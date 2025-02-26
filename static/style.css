@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Centering the container */
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2); 
+    background-image: url(https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 100vh;
+}
+
+/* Styling the container */
+.container {
+    background: rgb(157, 135, 135);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px); 
+    
+}
+
+/* Styling the header */
+h1 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 10px;
+    
+}
+
+label{
+    color:  #ece8e8;
+    font-size:17px ;
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+.button {
+    background: #000000;
+    color: rgb(234, 234, 234);
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: rgb(55, 54, 54) ;
+    box-shadow: 0px 0px 10px #cdcdcd;
+    color: white;
+}
+
+/* Placeholder Styling */
+input::placeholder {
+    color: #888;
+    font-size: 14px;
+}

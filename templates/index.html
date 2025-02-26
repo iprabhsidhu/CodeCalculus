@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Dynamic ODE Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Dynamic ODE Solver</h1>
-    <form action="/" method="post">
+  <div class="container">
+    <h1 class="header">Dynamic ODE Solver</h1>
+    <form class="form" action="/" method="post">
       <label for="ode">Enter the ODE in terms of v and t (e.g., '-2*v + np.sin(t)'):</label><br>
       <input type="text" id="ode" name="ode" size="50" required><br><br>
       
-      <label for="initial_condition">Enter initial condition (v0):</label><br>
+      <label for="initial_condition">Enter initial condition (Vo):</label><br>
       <input type="text" id="initial_condition" name="initial_condition" value="0" required><br><br>
       
       <label for="time_end">Enter time range end:</label><br>
       <input type="text" id="time_end" name="time_end" value="10" required><br><br>
       
-      <input type="submit" value="Solve ODE">
+      <input class="button" type="submit" value="Solve ODE">
     </form>
+  </div>
 </body>
 </html>
